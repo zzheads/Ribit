@@ -10,8 +10,8 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    return YES;
+{    
+    return true;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
