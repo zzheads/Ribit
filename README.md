@@ -31,13 +31,13 @@ Hit send button As you repeat steps 1 through 4 a few times you will notice that
 - 6) Remove deprecated APIs
 As Apple introduces newer versions of the iOS SDK it also introduces new APIs retiring the old ones. The APIs that are no longer supported by the new version of the SDK are known as deprecated APIs. Upon building the app you will see in the issue navigator that there are yellow triangles warning you as a developer that the APIs are no longer available. Modify the app to use the latest version of the APIs. Once you implement the newer API the warnings will go away. Make sure that by implementing the new API you do not take away the functionality that existed previously.
 
-Extra Credit
+###Extra Credit
 
-1) Add a backend
+- 1) Add a backend
 The starter app serves as a prototype. It has all the makings of a fully functional app, however, but without a real backend, a messaging app is useless. Originally the app worked with a service called Parse which is no longer available. There are several options you have: you can implement your own Parse server or use an alternatives like: Firebase, back4app, or Sashido.. https://www.back4app.com or www.sashido.io
 
-2) Implement missing features
+- 2) Implement missing features
 Implement all the missing features: sign-up, login, sending an image, sending a video, deleting the image or video upon view, friends selection, forgot password.
 
-3) Implement designs from mockups
+- 3) Implement designs from mockups
 Add design to the app based on the mockups provided. Other resources like app icon, launch and background images will be provided.
