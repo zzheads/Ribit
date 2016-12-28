@@ -11,19 +11,29 @@ To "exceed expectations", you will also need to add several features to the app 
 ##Project Instructions
 ><h6>To complete this project, follow the instructions below. If you get stuck, ask a question in the community.</h6>
 
-####- Fix Bug #1: When you first launch the app all you will see is a black screen. 
+#####- Fix Bug #1: When you first launch the app all you will see is a black screen. 
 There is a story board within the project with an initial view controller which should be displayed, but it is not. Display the initial view controller within the storyboard.
-####- Fix Bug #2: The login screen has an AutoLayout bug which shows up in the console log. 
+#####- Fix Bug #2: The login screen has an AutoLayout bug which shows up in the console log. 
 Whenever the login screen is presented an error is displayed saying: "Unable to simultaneously satisfy constraints."
-####- Fix Bug #3: The FriendsViewController displays duplicate friends. 
+#####- Fix Bug #3: The FriendsViewController displays duplicate friends. 
 Each friend should only be displayed once.
-####- Fix Bug #4: The EditFriendsViewController should show a checkmark next to usernames that are already friends.
-####- Fix Bug #5: Fix a memory leak in the app. 
+#####- Fix Bug #4: The EditFriendsViewController should show a checkmark next to usernames that are already friends.
+#####- Fix Bug #5: Fix a memory leak in the app. 
 Steps to reproduce the memory leak:
 Run the app on a device and watch the memory report in Xcode
 Select the Camera tab
 Take a photo and then tap on "Use Photo"
 Hit send button As you repeat steps 1 through 4 a few times you will notice that the memory usage of the app keeps going up. A memory leak is when memory is allocated for an object but not released appropriately. The object may no longer be pointing to the memory location however the memory is still allocated. Track down the leak and fix it. We have added a link to a helpful workshop under Project Resources, if you need it.
-####- Fix Bug #6: Remove deprecated APIs
+#####- Fix Bug #6: Remove deprecated APIs
 As Apple introduces newer versions of the iOS SDK it also introduces new APIs retiring the old ones. The APIs that are no longer supported by the new version of the SDK are known as deprecated APIs. Upon building the app you will see in the issue navigator that there are yellow triangles warning you as a developer that the APIs are no longer available. Modify the app to use the latest version of the APIs. Once you implement the newer API the warnings will go away. Make sure that by implementing the new API you do not take away the functionality that existed previously.
 
+Extra Credit
+
+1) Add a backend
+The starter app serves as a prototype. It has all the makings of a fully functional app, however, but without a real backend, a messaging app is useless. Originally the app worked with a service called Parse which is no longer available. There are several options you have: you can implement your own Parse server or use an alternatives like: Firebase, back4app, or Sashido.. https://www.back4app.com or www.sashido.io
+
+2) Implement missing features
+Implement all the missing features: sign-up, login, sending an image, sending a video, deleting the image or video upon view, friends selection, forgot password.
+
+3) Implement designs from mockups
+Add design to the app based on the mockups provided. Other resources like app icon, launch and background images will be provided.
