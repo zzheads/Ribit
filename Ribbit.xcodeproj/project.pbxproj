@@ -276,7 +276,7 @@
 				ORGANIZATIONNAME = Treehouse;
 				TargetAttributes = {
 					8DCDADA717A6B3CC008AAA28 = {
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
