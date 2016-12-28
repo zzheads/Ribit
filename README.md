@@ -12,8 +12,8 @@ To "exceed expectations", you will also need to add several features to the app 
 
 - [x] When you first launch the app all you will see is a black screen. There is a story board within the project with an initial view controller which should be displayed, but it is not. Display the initial view controller within the storyboard.
 - [X] The login screen has an AutoLayout bug which shows up in the console log. Whenever the login screen is presented an error is displayed saying: "Unable to simultaneously satisfy constraints."
-- [ ] The FriendsViewController displays duplicate friends. Each friend should only be displayed once.
-- [ ] The EditFriendsViewController should show a checkmark next to usernames that are already friends.
+- [X] The FriendsViewController displays duplicate friends. Each friend should only be displayed once.
+- [X] The EditFriendsViewController should show a checkmark next to usernames that are already friends.
 - [ ] Fix a memory leak in the app. 
 Steps to reproduce the memory leak:
 Run the app on a device and watch the memory report in Xcode
