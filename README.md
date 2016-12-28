@@ -11,19 +11,15 @@ To "exceed expectations", you will also need to add several features to the app 
 ##Project Instructions
 >To complete this project, follow the instructions below. If you get stuck, ask a question in the community.
 
-####- Fix Bug #1:
-When you first launch the app all you will see is a black screen. There is a story board within the project with an initial view controller which should be displayed, but it is not. Display the initial view controller within the storyboard.
-####- Fix Bug #2:
-The login screen has an AutoLayout bug which shows up in the console log. Whenever the login screen is presented an error is displayed saying: "Unable to simultaneously satisfy constraints."
-####- Fix Bug #3:
-The FriendsViewController displays duplicate friends. Each friend should only be displayed once.
-####- Fix Bug #4:
-The EditFriendsViewController should show a checkmark next to usernames that are already friends.
-####- Fix Bug #5:
-Fix a memory leak in the app. Steps to reproduce the memory leak:
+####- Fix Bug #1: When you first launch the app all you will see is a black screen. There is a story board within the project with an initial view controller which should be displayed, but it is not. Display the initial view controller within the storyboard.
+####- Fix Bug #2: The login screen has an AutoLayout bug which shows up in the console log. Whenever the login screen is presented an error is displayed saying: "Unable to simultaneously satisfy constraints."
+####- Fix Bug #3: The FriendsViewController displays duplicate friends. Each friend should only be displayed once.
+####- Fix Bug #4: The EditFriendsViewController should show a checkmark next to usernames that are already friends.
+####- Fix Bug #5: Fix a memory leak in the app. 
+Steps to reproduce the memory leak:
 Run the app on a device and watch the memory report in Xcode
 Select the Camera tab
 Take a photo and then tap on "Use Photo"
 Hit send button As you repeat steps 1 through 4 a few times you will notice that the memory usage of the app keeps going up. A memory leak is when memory is allocated for an object but not released appropriately. The object may no longer be pointing to the memory location however the memory is still allocated. Track down the leak and fix it. We have added a link to a helpful workshop under Project Resources, if you need it.
-####- Fix Bug #6:Remove deprecated APIs
+####- Fix Bug #6: Remove deprecated APIs
 As Apple introduces newer versions of the iOS SDK it also introduces new APIs retiring the old ones. The APIs that are no longer supported by the new version of the SDK are known as deprecated APIs. Upon building the app you will see in the issue navigator that there are yellow triangles warning you as a developer that the APIs are no longer available. Modify the app to use the latest version of the APIs. Once you implement the newer API the warnings will go away. Make sure that by implementing the new API you do not take away the functionality that existed previously.
