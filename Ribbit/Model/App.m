@@ -22,8 +22,8 @@
   
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
-    sharedApp = [[self alloc] init];
-    sharedApp.messagesMutable = [NSMutableArray array];
+      sharedApp = [[self alloc] init];
+      sharedApp.messagesMutable = [NSMutableArray array];
   });
   
   return sharedApp;
@@ -41,14 +41,21 @@
   return self.messagesMutable;
 }
 
-- (NSArray *)allUsers {
-  return  @[ [User userWithUsername:@"John"],
-             [User userWithUsername:@"Andrew"],
-             [User userWithUsername:@"Ben"],
-             [User userWithUsername:@"Pasan"],
-             [User userWithUsername:@"Amit"],
-             [User userWithUsername:@"Craig"],
-             [User userWithUsername:@"Alena"]];
++ (NSArray *)allUsers {
+    static NSArray *allUsers = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        allUsers = @[
+                     [User userWithUsername:@"John"],
+                     [User userWithUsername:@"Andrew"],
+                     [User userWithUsername:@"Ben"],
+                     [User userWithUsername:@"Pasan"],
+                     [User userWithUsername:@"Amit"],
+                     [User userWithUsername:@"Craig"],
+                     [User userWithUsername:@"Alena"]];
+    });
+    return allUsers;
 }
 
 

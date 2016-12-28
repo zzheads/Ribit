@@ -15,17 +15,39 @@
 
 @implementation EditFriendsViewController
 
+- (NSArray *)allUsers {
+    return [App allUsers];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-  
-  [self.tableView reloadData];
-  
-  self.currentUser = [User currentUser];
+    self.currentUser = [User currentUser];
+    [self.tableView reloadData];
+    for (int row=0;row<[self.allUsers count];row++) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
+        User *user = self.allUsers[row];
+        if ([self.currentUser isFriend:user]) {
+            [self.tableView selectRowAtIndexPath:indexPath animated:true scrollPosition:UITableViewScrollPositionNone];
+            [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
+        }
+    }    
 }
 
-- (NSArray *)allUsers {
-  return [[App currentApp] allUsers];
+- (void)viewWillDisappear:(BOOL)animated {
+    for (int i=0;i<[self.allUsers count];i++) {
+        User *user = self.allUsers[i];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+        if ([self.tableView cellForRowAtIndexPath:indexPath].isSelected) {
+            if (![self.currentUser isFriend:user]) {
+                [self.currentUser addFriend:user];
+            }
+        } else {
+            if ([self.currentUser isFriend:user]) {
+                [self.currentUser removeFriend:user];
+            }
+        }
+    }
 }
 
 #pragma mark - Table view data source
@@ -46,44 +68,26 @@
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    User *user = [self.allUsers objectAtIndex:indexPath.row];
+    User *user = [self userForRowAtIndexPath:indexPath];
     cell.textLabel.text = user.username;
-    
-    if ([self isFriend:user]) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    }
-    else {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
-    
     return cell;
+}
+
+-(User *)userForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [self.allUsers objectAtIndex:indexPath.row];
 }
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-  
-    User *user = [self.allUsers objectAtIndex:indexPath.row];
-    
-    if ([self isFriend:user]) {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-        [self.currentUser removeFriend:user];
-    }
-    else {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        [self.currentUser addFriend:user];
-    }    
+    [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
 }
 
-#pragma mark - Helper methods
-
-- (BOOL)isFriend:(User *)user {
-  return [self.currentUser.friends containsObject:user];
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [cell setAccessoryType:UITableViewCellAccessoryNone];
 }
 
 @end

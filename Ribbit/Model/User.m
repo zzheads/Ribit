@@ -24,7 +24,7 @@ static NSInteger identifier = 1;
     sharedUser = [[self alloc] init];
     sharedUser.username = @"Current user";
     sharedUser.objectId = @"100";
-    sharedUser.friendsMutable = [NSMutableArray array];
+    sharedUser.friendsMutable = [[NSMutableArray alloc] init];
   });
   
   return sharedUser;
@@ -39,18 +39,26 @@ static NSInteger identifier = 1;
   return user;
 }
 
+
+// Fix BUG#3: Add friend only if he is not present already in friends array
 - (void)addFriend:(User *)friend {
-  [self.friendsMutable addObject:friend];
+    if (![self.friends containsObject:friend]) {
+        [self.friendsMutable addObject:friend];
+    }
 }
 
 - (void)removeFriend:(User *)friend {
-  if ([self.friends containsObject:friend]) {
-    [self.friendsMutable removeObject:friend];
-  }
+    if ([self.friends containsObject:friend]) {
+        [self.friendsMutable removeObject:friend];
+    }
 }
 
 - (NSArray*) friends {
   return self.friendsMutable;
+}
+
+- (bool) isFriend:(User *)user {
+    return [self.friends containsObject:user];
 }
 
 

@@ -21,5 +21,6 @@
 - (void)addFriend:(User *)friend;
 - (void)removeFriend:(User *)friend;
 - (NSArray*) friends;
+- (bool) isFriend:(User *)user;
 
 @end

@@ -23,10 +23,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
     self.friends = [[User currentUser] friends];
     [self.tableView reloadData];
-
 }
 
 #pragma mark - Table view data source
@@ -47,11 +45,12 @@
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
     User *user = [self.friends objectAtIndex:indexPath.row];
     cell.textLabel.text = user.username;
     
     return cell;
 }
+
+
 
 @end
