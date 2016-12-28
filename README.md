@@ -10,7 +10,7 @@ To "exceed expectations", you will also need to add several features to the app 
 
 ##Project Instructions
 
-- [ ] When you first launch the app all you will see is a black screen. There is a story board within the project with an initial view controller which should be displayed, but it is not. Display the initial view controller within the storyboard.
+- [x] When you first launch the app all you will see is a black screen. There is a story board within the project with an initial view controller which should be displayed, but it is not. Display the initial view controller within the storyboard.
 - [ ] The login screen has an AutoLayout bug which shows up in the console log. Whenever the login screen is presented an error is displayed saying: "Unable to simultaneously satisfy constraints."
 - [ ] The FriendsViewController displays duplicate friends. Each friend should only be displayed once.
 - [ ] The EditFriendsViewController should show a checkmark next to usernames that are already friends.
