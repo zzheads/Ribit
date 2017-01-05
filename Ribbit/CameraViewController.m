@@ -209,6 +209,7 @@
 - (void)reset {
     self.image = nil;
     self.videoFilePath = nil;
+    [[App currentApp] deleteAllMessages];
     [self.recipients removeAllObjects];
 }
 

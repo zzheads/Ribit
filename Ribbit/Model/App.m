@@ -37,6 +37,10 @@
   [self.messagesMutable removeObject:message];
 }
 
+- (void) deleteAllMessages {
+    [self.messagesMutable removeAllObjects];
+}
+
 - (NSArray*)messages {
   return self.messagesMutable;
 }

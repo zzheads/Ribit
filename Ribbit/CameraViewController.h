@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "App.h"
 
 @interface CameraViewController : UITableViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 

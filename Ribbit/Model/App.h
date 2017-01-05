@@ -15,6 +15,7 @@
 + (instancetype) currentApp;
 - (void) addMessage:(Message*)message;
 - (void) deleteMessage:(Message*)message;
+- (void) deleteAllMessages;
 - (NSArray *) messages;
 + (NSArray *) allUsers;
 
